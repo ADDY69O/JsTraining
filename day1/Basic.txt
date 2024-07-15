@@ -1,0 +1,52 @@
+JavaScript
+
+It is a lightweight , cross Platform , single threaded that used to make webpages interactive.
+
+lightweight ->  it can run on almost any device without requiring a lot of memory or processing power.
+
+cross Platform -> used for both client and server site development
+
+single threaded -> it has only one call stack that is used to execute the program.
+
+dynamically typed (loosely type) -> at runtime variable receive value of diffrent type 
+
+
+
+Variables : It is used for storing the value.
+2 type of scope of Variables
+ 1. Local scope ->  Declare a variable inside of a block or function.
+ 2. Global scope -> Declare a variable outside function or with a window object.
+
+mainly there are 3 types of Variables used
+1. Var -> redeclare , function-scope, globally scope
+2. Let -> block scope
+3. Const -> can't redeclare, block scope
+
+
+
+Data Types in JavaScript
+
+primitive data type
+
+Number, string, Boolean, Null, Undefined, Symbol, Bigint
+
+
+non - primitive datatype
+Object, array, regex, symbol, function
+
+
+Expression 
+It is the combination of value, variable, operators and function that evaluates the single value.
+
+Arithmetic Operators :-> + - *  / %
+
+Assignment Operators :-> = += -= *= /= %=
+
+Comparison operator  :-> == === != !== > <  >= <=
+
+Logical operator     :-> && || ! 
+
+
+  Null      :->  it represents the absence of the value
+
+  Undefined :->  variable is declared but its value is not initialize 
