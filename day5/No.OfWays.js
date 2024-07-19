@@ -1,17 +1,12 @@
-let arr = [-1, 9, 8, -3, 4];
+let arr = [-1, 9, 8, -3, -4];
 let targetSum = 5;
 
 const noOfWays = (arr, targetSum, index, currentSum) => {
-  console.log(currentSum);
-  if (currentSum > targetSum) return 0;
-  if (index >= arr.length) {
-    return 0;
-  }
-  if (currentSum == targetSum) {
-    return 1;
+  if (index == arr.length) {
+    return targetSum == currentSum ? 1 : 0;
   }
 
-  let sum = noOfWays(arr, targetSum, index + currentSum + arr[index]);
+  let sum = noOfWays(arr, targetSum, index + 1, currentSum + arr[index]);
 
   let sub = noOfWays(arr, targetSum, index + 1, currentSum - arr[index]);
 
