@@ -1,8 +1,8 @@
 const intervals = [
   [15, 18],
-  [2, 3],
+
   [1, 3],
-  [2, 6],
+
   [8, 10],
   [2, 6],
 ];
@@ -23,9 +23,9 @@ const sortedData = (intervals) => {
   //   }
   intervals.sort((a, b) => a[0] - b[0]);
 
-  //   intervals.sort(function (a, b) {
-  //     return a[1].localeCompare(b[1]);
-  //   });
+  // intervals.sort(function (a, b) {
+  //   return a[1].localeCompare(b[1]);
+  // });
 
   return intervals;
 };
@@ -35,21 +35,16 @@ const sortedMergeIntervals = (data) => {
 
   let current = data[0];
 
-  let j = 1;
-  while (j < data.length) {
-    if (current[0][1] == data[j][1] && current[0][0] == data[j][0]) {
-      j++;
-    } else if (current[0][1] >= data[j][0] && current[0][1] <= data[j][1]) {
-      let array = new Array();
-      array.push(data[j][0], data[j][1]);
-      current = array;
-      j++;
+  for (let index = 1; index < data.length; index++) {
+    if (current[1] < data[index][0]) {
+      current = [current[0], Math.max(current[1], data[index][1])];
     } else {
       mergedData.push(current);
-      current = data[j];
-      j++;
+      current = [data[index][0], data[index][1]];
     }
   }
+
+  mergedData.push(current);
 
   return mergedData;
 };
