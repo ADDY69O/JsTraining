@@ -9,7 +9,7 @@ class EventEmitter {
     } else {
       if (!this.events[event]) {
         this.events[event] = [];
-      }
+      } //ternary
       this.events[event].push(method);
     }
   }
@@ -19,9 +19,10 @@ class EventEmitter {
     if (this.events[event]) {
       console.log("event Found");
       this.events[event].forEach((eventMethod) => {
-        setTimeout(() => {
-          eventMethod(...args);
-        }, Math.random() * 5 + 1000);
+        // setTimeout(() => {
+        //   eventMethod(...args);
+        // }, Math.random() * 5 + 1000);
+        eventMethod(...args);
       });
 
       console.log("Successfully called all the methods");
@@ -35,6 +36,7 @@ class EventEmitter {
       this.events[event] = this.events[event].filter(
         (eventMethod) => eventMethod !== method
       );
+
       console.log("Event " + event + " removed Successfully");
     } else {
       console.log("No event handler for " + event);
@@ -80,6 +82,6 @@ MathOperations.on("basicFunctions", sub);
 // emit the added functions
 MathOperations.emit("basicFunctions", 1, 2, 1);
 
-MathOperations.off("basicFunctions");
+MathOperations.off("basicFunctions", add);
 
 MathOperations.emit("basicFunctions", 1, 2, 1);

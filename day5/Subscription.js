@@ -140,7 +140,7 @@ const subscription = [
 const subscriptionDataByRoute = (route, subscription) => {
   const data = subscription.filter(
     (routeSubscription) => routeSubscription.name == route.name
-  );
+  ); //
   return data;
 };
 
@@ -164,6 +164,9 @@ const showSubscription = (routes, subscription) => {
   const resultData = [];
   for (let route of routes) {
     const subscriptionData = subscriptionDataByRoute(route, subscription);
+    // console.log("*********************");
+    // console.log(subscriptionData, route);
+    // console.log("*********************");
     const routeObject = new Object();
     routeObject.name = route.name;
 
@@ -178,7 +181,7 @@ const showSubscription = (routes, subscription) => {
     }
 
     if (
-      subscriptionData[0].isSub == true &&
+      subscriptionData[0].isSub == true && //remove extra
       route.subComp &&
       subscriptionData[0].subMod
     ) {
@@ -186,8 +189,8 @@ const showSubscription = (routes, subscription) => {
       routeObject.subComp = showSubscription(
         route.subComp,
         subscriptionData[0].subMod
-      );
-    } else if (subscription[0].isSub == false && route.subComp) {
+      ); //error handling
+    } else if (subscriptionData[0].isSub == false && route.subComp) {
       console.log(route.subComp);
       routeObject.subComp = moduleFalseComponents(route.subComp);
     } else if (route.comp && subscriptionData[0]) {
@@ -200,7 +203,9 @@ const showSubscription = (routes, subscription) => {
 
 const printData = (data) => {
   for (let ele of data) {
+    //naming convention
     if (Array.isArray(data[ele])) {
+      //ternary operator
       printData(ele);
     } else {
       console.log(ele);
